@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import datetime
 import random
 app = Flask(__name__)
@@ -6,7 +6,10 @@ app = Flask(__name__)
 @app.route('/') # 데코레이터 : 앞에 골뱅이가 붙어있어서. 어떤 함수이다. '다음번에 설명!'
                 # 하는 역할은? endpoint 루트라고 부름 route 페이지 들어갔을 때 무엇을 보여줄 것인가.
 def hello():    # 함수를 만드는 방법
-    return 'Hello SSAFY!'
+    # return 'Hello SSAFY!'
+    return render_template('index.html') # app.py 와 같은 경로여야 함. templates파일 생성
+
+
 
 @app.route('/ssafy')
 def ssafy():
@@ -35,11 +38,15 @@ def html_lines():
 # Variable Routing
 @app.route('/greeting/<name>') # IU
 def greeting(name): # name == IU
-    return f'반갑습니다! {name} 님!'
+    return render_template('greeting.html', html_name=name) # html 안으로 변수를 넘겨준다.
+    # 진자2 라는 모듈이 해줌
+    # render_template 라는 함수를 이용해서 templates 폴더에서 찾는다!
+
 
 @app.route('/cube/<int:num>')
 def cube(num):
-    return f'{num}의 3 제곱은 {num ** 3} 입니다.'
+    #num3 = num ** 3 안에서 직접 계산도 된다!
+    return render_template('cube.html', html_num=num)
 
 # 실습
 @app.route('/lunch/<int:people>')
@@ -49,6 +56,13 @@ def lunch(people):
     menu = ['짜장', '짬뽕', '볶음밥', '잡채밥', '우동']
     order = random.sample(menu, people)
     return str(order)
+
+
+@app.route('/movie') # 반복문 사용
+def movie():
+    movies = ['스파이더맨', '엔드게임', '기생충', '알라딘']
+    return render_template('movie.html', movies=movies)
+
 
 if __name__ == '__main__':# 메인으로 활용할 때만 디버그 모드를 on 하겠다
     app.run(debug=True)     

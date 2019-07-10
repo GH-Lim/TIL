@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movie</title>
+</head>
+<body>
+    <h1>영화 목록</h1>
+    <ul>
+        {% for movie in movies %} <!-- 컨벤션**여러개가 있을 떈 복수로 써서 직관적으로 이해할 수 있게 한다. -->
+        <li>{{ movie }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
