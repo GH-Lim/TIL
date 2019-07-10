@@ -1,0 +1,19 @@
+/* 요소 선택자 (type) */
+h2 {
+    color: tomato;
+}
+
+/* 아이디 선택자 (id) */
+#description {
+    background-color: rgba(100, 100, 207, 0.815);
+}
+
+/* 클래스 선택자 (class) */
+li.list-item {
+    font-size: 20px;
+}
+
+ul li {
+    /* ul태그 안에 있는 li */
+    background-color: blanchedalmond
+}
