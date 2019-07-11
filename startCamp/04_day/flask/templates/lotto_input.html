@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lotto</title>
+</head>
+<body>
+    <h1>동행 Lotto</h1>
+    <form action="/lotto_result">
+        로또 회차: <input type="number" name="round" /><br />
+        로또 번호: <input type="text" name="numbers" /><br />
+        <!-- text로 받아서 split -->
+        <!-- 단독으로 쓰이는 것들도 / 로 명시적으로 끝내기 해주면 좋음 -->
+        <button type="submit">제출하기</button>
+    </form>
+    
+</body>
+</html>
